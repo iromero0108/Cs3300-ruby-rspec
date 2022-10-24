@@ -3,15 +3,27 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  return arr.sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  maxArray=arr.max(2)
+  return maxArray.sum
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  possible=false
+  if arr.empty?
+    possible=false
+  else
+    arr.combination(2){
+      |combination| 
+      if combination.sum == n
+        possible = true
+      end
+    }
+  end
+  return possible
 end
 
 # Part 2
