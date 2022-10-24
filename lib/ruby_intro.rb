@@ -29,15 +29,46 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  valid=false;
+  
+  if s.length==0
+    valid=false
+  elsif (s=~ /\A(?=[^aeiouAEIOU])(?=[a-zA-Z])/i)
+    valid = true
+  else
+    valid=false
+  end
+  return valid
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  valid=false
+  if s.length<3
+    if (s.length==1 && s[0]=="0")
+      valid=true
+    else
+      valid=false
+    end
+  elsif (s.scan(/\D/).empty?)
+    
+    if s.scan(/[^2-9]/).length==s.length
+      reverseString=s.reverse
+      if (reverseString[0]=="0"&&reverseString[1]=="0"&&reverseString[2]=="1")
+        valid=true
+      else
+        valid=false
+      end
+    else
+      valid=false
+    end
+  else
+    valid=false
+  end
+  return valid
 end
 
 # Part 3
